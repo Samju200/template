@@ -8,8 +8,6 @@ export const templateListReducer = (
     let sort_order = 1;
     if (order === 'Descending') {
       sort_order = -1;
-    } else if (order === 'Default') {
-      sort_order = '';
     }
     return function (a, b) {
       if (a[property] < b[property]) {
