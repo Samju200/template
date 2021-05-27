@@ -69,4 +69,7 @@ legend {
     margin: 5px 30px;
     justify-items: center;
   }
+  .sort_by {
+    margin-left: 30px;
+  }
 }

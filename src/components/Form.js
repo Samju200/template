@@ -41,7 +41,7 @@ function Form() {
         </p>
       </div>
       <div className="sort_form">
-        <p className="sort_out">Sort by:</p>
+        <p className="sort_out sort_by">Sort by:</p>
         <div className="sort_out">
           <fieldset>
             <legend>Category</legend>
