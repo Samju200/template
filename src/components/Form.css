@@ -59,8 +59,12 @@ legend {
   }
 }
 @media screen and (max-width: 500px) {
+  .form {
+    margin-top: 10px;
+  }
   .search_form {
     margin-bottom: 10px;
+    margin-left: 30px;
   }
   .sort_form {
     flex-direction: column;
