@@ -1,21 +1,21 @@
 import * as ACTION from '../constants/templateConstant';
 
 export const templateListReducer = (
-  state = { loading: true, templates: [], activeTemplates: [], text: '' },
+  state = { loading: true, templates: [], activeTemplates: [], text: 'All' },
   action
 ) => {
   function orderSort(property, order) {
-    let sort_order = 1;
-    if (order === 'Descending') {
-      sort_order = -1;
-    }
     return function (a, b) {
-      if (a[property] < b[property]) {
-        return -1 * sort_order;
-      } else if (a[property] > b[property]) {
-        return 1 * sort_order;
+      if (order === 'Ascending' && a[property] < b[property]) {
+        return -1;
+      } else if (order === 'Ascending' && a[property] > b[property]) {
+        return 1;
+      } else if (order === 'Descending' && a[property] > b[property]) {
+        return -1;
+      } else if (order === 'Descending' && a[property] < b[property]) {
+        return 1;
       } else {
-        return 0 * sort_order;
+        return 0;
       }
     };
   }
@@ -28,6 +28,7 @@ export const templateListReducer = (
         loading: false,
         templates: action.payload,
         activeTemplates: action.payload,
+        text: 'All',
       };
     case ACTION.TEMPLATE_FAIL:
       return { ...state, loading: false, error: action.payload };
@@ -57,35 +58,22 @@ export const templateListReducer = (
       };
 
     case ACTION.ORDER_NAME:
-      let orderName = state.activeTemplates.sort(
-        orderSort('name', action.payload)
+      let orderName = state.templates.filter((template) =>
+        state.text === 'All' || template.category.includes(state.text)
+          ? template
+          : null
       );
-      if (action.payload === 'Default') {
-        return {
-          ...state,
-          text: '',
-          loading: false,
-          activeTemplates: state.templates,
-        };
-      }
+
       return {
         ...state,
-        text: '',
         loading: false,
-        activeTemplates: orderName,
+        activeTemplates: orderName.sort(orderSort('name', action.payload)),
       };
     case ACTION.ORDER_DATE:
-      let orderDate = state.activeTemplates.sort(
+      let orderDate = state.templates.sort(
         orderSort('created', action.payload)
       );
-      if (action.payload === 'Default') {
-        return {
-          ...state,
-          text: '',
-          loading: false,
-          activeTemplates: state.templates,
-        };
-      }
+
       return {
         ...state,
         text: state.text,

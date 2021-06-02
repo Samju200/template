@@ -1,6 +1,6 @@
 import React from 'react';
 import './Form.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   searchName,
   orderName,
@@ -11,9 +11,20 @@ import {
 import { FaSearch } from 'react-icons/fa';
 
 function Form() {
-  const categories = ['All', 'Health', 'E-commerce', 'Education'];
+  // const categories = ['All', 'Health', 'E-commerce', 'Education'];
   const orders = ['Default', 'Ascending', 'Descending'];
   const dispatch = useDispatch();
+  const { activeTemplates } = useSelector((state) => state.template);
+  const categories = [
+    'All',
+    ...new Set(
+      activeTemplates
+        .map((template) => template.category)
+        .join(',')
+        .split(',')
+    ),
+  ];
+  console.log(categories);
 
   const searchChange = (e) => {
     dispatch(searchName(e.target.value));
