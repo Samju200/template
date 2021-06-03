@@ -70,15 +70,16 @@ export const templateListReducer = (
         activeTemplates: orderName.sort(orderSort('name', action.payload)),
       };
     case ACTION.ORDER_DATE:
-      let orderDate = state.templates.sort(
-        orderSort('created', action.payload)
+      let orderDate = state.templates.filter((template) =>
+        state.text === 'All' || template.category.includes(state.text)
+          ? template
+          : null
       );
 
       return {
         ...state,
-        text: state.text,
         loading: false,
-        activeTemplates: orderDate,
+        activeTemplates: orderDate.sort(orderSort('created', action.payload)),
       };
     default:
       return state;
