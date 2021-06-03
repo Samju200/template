@@ -11,7 +11,6 @@ import {
 import { FaSearch } from 'react-icons/fa';
 
 function Form() {
-  // const categories = ['All', 'Health', 'E-commerce', 'Education'];
   const orders = ['Default', 'Ascending', 'Descending'];
   const dispatch = useDispatch();
   const { activeTemplates } = useSelector((state) => state.template);
@@ -24,7 +23,6 @@ function Form() {
         .split(',')
     ),
   ];
-  console.log(categories);
 
   const searchChange = (e) => {
     dispatch(searchName(e.target.value));
