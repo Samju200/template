@@ -3,7 +3,7 @@ import './Pagination.css';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { useDispatch, useSelector } from 'react-redux';
-import { nextpage, prevpage } from '../actions/paginationAction';
+import { nextPage, prevPage } from '../actions/paginationAction';
 
 function Pagination() {
   const { activeTemplates, loading } = useSelector((state) => state.template);
@@ -14,11 +14,11 @@ function Pagination() {
   const dispatch = useDispatch();
 
   function goToNextPage() {
-    dispatch(nextpage());
+    dispatch(nextPage());
   }
 
   function goToPreviousPage() {
-    dispatch(prevpage());
+    dispatch(prevPage());
   }
 
   return (

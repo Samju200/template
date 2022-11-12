@@ -1,9 +1,9 @@
 import * as ACTION from '../constants/paginationConstant';
 
-export const nextpage = () => {
+export const nextPage = () => {
   return { type: ACTION.NEXT_PAGE };
 };
 
-export const prevpage = () => {
+export const prevPage = () => {
   return { type: ACTION.PREVIOUS_PAGE };
 };
