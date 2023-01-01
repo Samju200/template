@@ -6,7 +6,7 @@ import {
   orderName,
   orderDate,
   orderCategory,
-} from '../actions/templateAction';
+} from '../features/template/templateSlice';
 
 import { FaSearch } from 'react-icons/fa';
 

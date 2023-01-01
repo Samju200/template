@@ -1,7 +1,0 @@
-export const TEMPLATE_REQUEST = 'TEMPLATE_REQUEST';
-export const TEMPLATE_SUCCESS = ' TEMPLATE_SUCCESS';
-export const TEMPLATE_FAIL = ' TEMPLATE_FAIL';
-export const SEARCH_NAME = 'SEARCH_NAME';
-export const ORDER_NAME = 'ORDER_NAME';
-export const ORDER_DATE = 'ORDER_DATE';
-export const ORDER_CATEGORY = 'ORDER_CATEGORY';

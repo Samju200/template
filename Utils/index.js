@@ -4,7 +4,7 @@ import { templateListReducer } from './../src/reducers/templateReducer';
 import ReduxThunk from 'redux-thunk';
 // import { middlewares } from './../src/createStore';
 
-export const findByTestAtrr = (component, attr) => {
+export const findByTestAttribute = (component, attr) => {
   const wrapper = component.find(attr);
   return wrapper;
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestAtrr } from './../../Utils';
+import { findByTestAttribute } from './../../Utils';
 import Alert from './Alert';
 
 const setUp = () => {
@@ -15,7 +15,7 @@ describe('Alert Component', () => {
   });
 
   it('Should render without errors', () => {
-    const wrapper = findByTestAtrr(component, '.alert');
+    const wrapper = findByTestAttribute(component, '.alert');
     expect(wrapper.length).toBe(1);
   });
 

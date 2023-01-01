@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './Template.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTemplate } from '../actions/templateAction';
+import { fetchTemplate } from '../features/template/templateSlice';
 
 function Template() {
   const dispatch = useDispatch();
